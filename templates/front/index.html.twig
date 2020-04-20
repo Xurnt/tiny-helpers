@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %} 
+{% block title %}All - Tiny Helpers{% endblock %} 
+{% block body %}
+
+<div class="wrapper">
+    <div class="logo">
+        <h1>Tiny helpers</h1>
+    </div>
+    <div class="social">
+        <figure>
+            <figcaption>Follow on twitter</figcaption>
+            <img src="#" alt="logo Twitter">
+        </figure>
+        <button>
+            <figure>
+                <figcaption>Connection</figcaption>
+                <img src="#" alt="image connection">
+            </figure>
+        </button>
+    </div>
+    <nav class="categories">
+        <span>A collection of free single-purpose online tools for web developers...</span>
+        <h2>Tags</h2>
+        {% for  category in categories %}
+            <a href="/{{category.name}}">
+                <span>{{category.name}}</span><span>{{ category.articles|length }}</span></a>
+        {% endfor %}
+        <p>
+            Brought to you by Stefan Judis <br>
+
+            (Website, Twitter, GitHub) <br>
+            
+            and these lovely people:
+        </p>
+        {% for user in users %}
+        <a href="{{user.link}}"><img src="{{user.profilePicture}}" alt="Picture of {{user.name}}"></a>
+        {% endfor %}
+    </nav>
+    <main class="articles">
+        <div class="topBar">
+            <h2>All tools</h2>
+            <div class="topBar__buttons">
+                <button>Sort by name</button>
+                <button>Sort by date</button>
+            </div>
+        </div>
+        <div class="articles__wrapper">
+            {% for article in articles %}
+            <a href="#">
+                <img src="{{article.illustration}}" alt="image {{article.name}}">
+                <div>
+                    <h3>{{article.name}}</h3>
+                    <div>
+                        {% for article_category in article.category %}
+                            <span>{{article_category.name}}</span>
+                        {% endfor %}
+                    </div>
+                    <span>{{article.description}}</span>
+                </div>
+                <span>Go to {{article.name}}</span>
+            </a>
+            {% endfor %}
+        </div>
+
+    </main>
+</div>
+{% endblock %}

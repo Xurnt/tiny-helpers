@@ -1,0 +1,41 @@
+.wrapper{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 20vh 1fr;
+    grid-template-areas: "logo social" "categories articles";
+}
+
+.logo
+{
+    grid-area: logo;
+}
+
+.social
+{
+    grid-area: social;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.categories
+{
+    grid-area: categories;
+    display: flex;
+    flex-direction: column;
+}
+
+.articles
+{
+    grid-area: articles;
+}
+
+.topBar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.articles__wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
